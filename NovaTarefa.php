@@ -29,6 +29,12 @@
         </div>
     </nav>
 
+    <?php if (isset($_GET['inclusao']) && $_GET['inclusao'] == 1) { ?>
+    <div class="bg-success pt-2 text-white d-flex justify-content-center">
+        <h5>Tarefa inserida com sucesso!</h5>
+    </div>
+    <?php } ?>
+
     <div class="container app">
         <div class="row">
             <div class="col-md-4 menu">
@@ -46,8 +52,7 @@
                             <h4 class="border-bottom border-success mb-4 pb-3 font-weight-bold text-center">Nova Tarefa
                             </h4>
 
-                            <form method="post"
-                                action="http://localhost/WorkSpace/PDO/App%20Lista%20de%20Tarefas/logica/TarefaController.php">
+                            <form method="post" action="logica/TarefaController.php?acao=inserir">
                                 <div class="form-group">
                                     <label for=""> Descrição da Tarefa:</label>
                                     <input type="text" name="tarefa" id="tarefa" class="form-control"
