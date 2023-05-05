@@ -46,10 +46,11 @@
                             <h4 class="border-bottom border-success mb-4 pb-3 font-weight-bold text-center">Nova Tarefa
                             </h4>
 
-                            <form action="">
+                            <form method="post"
+                                action="http://localhost/WorkSpace/PDO/App%20Lista%20de%20Tarefas/logica/TarefaController.php">
                                 <div class="form-group">
                                     <label for=""> Descrição da Tarefa:</label>
-                                    <input type="text" name="" id="" class="form-control"
+                                    <input type="text" name="tarefa" id="tarefa" class="form-control"
                                         placeholder="Exemplo: Pagar conta de luz!">
                                 </div>
                                 <button class="btn btn-success">Cadastrar</button>
