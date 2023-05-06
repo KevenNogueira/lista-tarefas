@@ -1,3 +1,8 @@
+<?php
+$acao = 'recuperar';
+require 'logica/TarefaController.php';
+?>
+
 <!DOCTYPE html>
 <html lang="pt-br">
 
@@ -29,7 +34,7 @@
 
     <div class="container app">
         <div class="row">
-            <div class="col-sm-4 menu">
+            <div class="col-md-4 menu">
                 <ul class="list-group">
                     <li class="list-group-item "><a href="Index.php">Tarefas Pendentes</a></li>
                     <li class="list-group-item"><a href="NovaTarefa.php">Nova Tarefa</a></li>
@@ -37,31 +42,27 @@
                 </ul>
             </div>
 
-            <div class="col-sm-8">
+            <div class="col-md-8">
                 <div class="container pagina">
                     <div class="row">
                         <div class="col">
                             <h4 class="border-bottom border-success mb-4 pb-3 font-weight-bold text-center">Todas
                                 Tarefas</h4>
 
-                            <div class="row mb-3 d-flex align-items-center tarefa">
-                                <div class="col-sm-9">Lavar tênis (status)</div>
-                                <div class="col-sm-3 mt-2 d-flex justify-content-between">
-                                    <i class="fas fa-trash-alt fa-lg text-danger"></i>
-                                    <i class="fas fa-edit fa-lg text-info"></i>
-                                    <i class="fas fa-check-square fa-lg text-success"></i>
+                            <?php foreach ($tarefas as $indice => $tarefa) { ?>
+                                <div class="row mb-3 d-flex align-items-center tarefa">
+                                    <div class="col-sm-9" id="tarefa_<?php echo $tarefa->id ?>">
+                                        <?php echo $tarefa->dsc_tarefa ?>
+                                        (<?php echo $tarefa->status ?>)
+                                    </div>
+                                    <div class="col-sm-3 mt-2 d-flex justify-content-between">
+                                        <i class="fas fa-trash-alt fa-lg text-danger" onclick="remover(<?php echo $tarefa->id ?>)"></i>
+                                        <i class="fas fa-edit fa-lg text-info" onclick="editar(<?php echo $tarefa->id ?>, '<?php echo $tarefa->dsc_tarefa ?>')"></i>
+                                        <i class="fas fa-check-square fa-lg text-success"></i>
+                                    </div>
                                 </div>
-                            </div>
-                            <hr>
-
-                            <div class="row mb-3 d-flex align-items-center tarefa">
-                                <div class="col-sm-9">Academia (status)</div>
-                                <div class="col-sm-3 mt-2 d-flex justify-content-between">
-                                    <i class="fas fa-trash-alt fa-lg text-danger"></i>
-                                    <i class="fas fa-edit fa-lg text-info"></i>
-                                    <i class="fas fa-check-square fa-lg text-success"></i>
-                                </div>
-                            </div>
+                                <hr>
+                            <?php } ?>
                         </div>
                     </div>
                 </div>
@@ -78,7 +79,7 @@
     </script>
 
     <!-- Incio do JS personalizado -->
-    <script src="JS/script.js"></script>
+    <script src="js/script.js"></script>
 </body>
 
 </html>
