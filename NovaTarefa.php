@@ -1,3 +1,9 @@
+<?php
+if (isset($_GET['tarefa']) && $_GET['tarefa'] == 'vazio') {
+    echo "<script> alert('Não e possivel abrir chamados vazios!!');</script>";
+}
+?>
+
 <!DOCTYPE html>
 <html lang="pt-br">
 
