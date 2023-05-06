@@ -51,11 +51,13 @@ require 'logica/TarefaController.php';
 
                             <?php foreach ($tarefas as $indice => $tarefa) { ?>
                                 <div class="row mb-3 d-flex align-items-center tarefa">
-                                    <div class="col-sm-9"> <?php echo $tarefa->dsc_tarefa ?>
-                                        (<?php echo $tarefa->status ?>)</div>
+                                    <div class="col-sm-9" id="tarefa_<?php echo $tarefa->id ?>">
+                                        <?php echo $tarefa->dsc_tarefa ?>
+                                        (<?php echo $tarefa->status ?>)
+                                    </div>
                                     <div class="col-sm-3 mt-2 d-flex justify-content-between">
                                         <i class="fas fa-trash-alt fa-lg text-danger"></i>
-                                        <i class="fas fa-edit fa-lg text-info"></i>
+                                        <i class="fas fa-edit fa-lg text-info" onclick="editar(<?php echo $tarefa->id ?>, '<?php echo $tarefa->dsc_tarefa ?>')"></i>
                                         <i class="fas fa-check-square fa-lg text-success"></i>
                                     </div>
                                 </div>
@@ -77,7 +79,7 @@ require 'logica/TarefaController.php';
     </script>
 
     <!-- Incio do JS personalizado -->
-    <script src="JS/script.js"></script>
+    <script src="js/script.js"></script>
 </body>
 
 </html>

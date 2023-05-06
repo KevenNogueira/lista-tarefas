@@ -39,6 +39,19 @@ class TarefaService
     }
     public function atualizar()
     {
+        $query = '
+            UPDATE
+                tarefas
+            SET
+                dsc_tarefa = :tarefa
+            WHERE
+                id = :id
+        ';
+
+        $stmt = $this->conexao->prepare($query);
+        $stmt->bindValue(':tarefa', $this->tarefa->__get('dsc_tarefa'));
+        $stmt->bindValue(':id', $this->tarefa->__get('id'));
+        return $stmt->execute();
     }
     public function remover()
     {
