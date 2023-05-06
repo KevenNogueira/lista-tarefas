@@ -1,6 +1,11 @@
-function editar(id, dscTarefa) {
+function editar(id, dscTarefa, pag) {
+  console.log(pag);
   let form = document.createElement('form');
-  form.action = 'logica/TarefaController.php?acao=atualizar';
+  if (pag == 'index') {
+    form.action = 'logica/TarefaController.php?acao=atualizar&pag=index';
+  } else {
+    form.action = 'logica/TarefaController.php?acao=atualizar';
+  }
   form.method = 'post';
   form.className = 'row';
 
@@ -30,6 +35,18 @@ function editar(id, dscTarefa) {
   tarefa.insertBefore(form, tarefa[0]);
 }
 
-function remover(id) {
-  location.href = 'TodasTarefas.php?acao=remover&id=' + id;
+function remover(id, pag) {
+  if (pag == 'index') {
+    location.href = 'Index.php?acao=remover&pag=index&id=' + id;
+  } else {
+    location.href = 'TodasTarefas.php?acao=remover&id=' + id;
+  }
+}
+
+function marcarRealizada(id, pag) {
+  if (pag == 'index') {
+    location.href = 'Index.php?acao=marcarRealizada&pag=index&id=' + id;
+  } else {
+    location.href = 'TodasTarefas.php?acao=marcarRealizada&id=' + id;
+  }
 }
