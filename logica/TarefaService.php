@@ -55,5 +55,16 @@ class TarefaService
     }
     public function remover()
     {
+        $query = '
+            DELETE
+            FROM
+                tarefas
+            WHERE
+                id = ?
+        ';
+
+        $stmt = $this->conexao->prepare($query);
+        $stmt->bindValue(1, $this->tarefa->__get('id'));
+        return $stmt->execute();
     }
 }

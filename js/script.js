@@ -29,3 +29,7 @@ function editar(id, dscTarefa) {
 
   tarefa.insertBefore(form, tarefa[0]);
 }
+
+function remover(id) {
+  location.href = 'TodasTarefas.php?acao=remover&id=' + id;
+}
