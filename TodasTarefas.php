@@ -55,11 +55,11 @@ require 'logica/TarefaController.php';
                                         <?php echo $tarefa->dsc_tarefa ?> (<?php echo $tarefa->status ?>)
                                     </div>
                                     <div class="col-sm-3 mt-2 d-flex justify-content-between">
-                                        <i class="fas fa-trash-alt fa-lg text-danger" onclick="remover(<?php echo $tarefa->id ?>)"></i>
+                                        <i class="fas fa-trash-alt fa-lg text-danger" title="Excluir" onclick="remover(<?php echo $tarefa->id ?>)"></i>
 
                                         <?php if ($tarefa->status == 'pendente') { ?>
-                                            <i class="fas fa-edit fa-lg text-info" onclick="editar(<?php echo $tarefa->id ?>, '<?php echo $tarefa->dsc_tarefa ?>')"></i>
-                                            <i class="fas fa-check-square fa-lg text-success" onclick="marcarRealizada(<?php echo $tarefa->id ?>)"></i>
+                                            <i class="fas fa-edit fa-lg text-info" title="Editar" onclick="editar(<?php echo $tarefa->id ?>, '<?php echo $tarefa->dsc_tarefa ?>')"></i>
+                                            <i class="fas fa-check-square fa-lg text-success" title="Marcar como Realizada" onclick="marcarRealizada(<?php echo $tarefa->id ?>)"></i>
                                         <?php } ?>
 
                                     </div>

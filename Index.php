@@ -57,9 +57,9 @@ require 'logica/TarefaController.php';
                                         <?php echo $tarefa->dsc_tarefa ?>
                                     </div>
                                     <div class="col-sm-3 mt-2 d-flex justify-content-between">
-                                        <i class="fas fa-trash-alt fa-lg text-danger" onclick="remover(<?php echo $tarefa->id ?>, 'index')"></i>
-                                        <i class="fas fa-edit fa-lg text-info" onclick="editar(<?php echo $tarefa->id ?>, '<?php echo $tarefa->dsc_tarefa ?>', 'index')"></i>
-                                        <i class="fas fa-check-square fa-lg text-success" onclick="marcarRealizada(<?php echo $tarefa->id ?>, 'index')"></i>
+                                        <i class="fas fa-trash-alt fa-lg text-danger" title="Excluir" onclick="remover(<?php echo $tarefa->id ?>, 'index')"></i>
+                                        <i class="fas fa-edit fa-lg text-info" title="Editar" onclick="editar(<?php echo $tarefa->id ?>, '<?php echo $tarefa->dsc_tarefa ?>', 'index')"></i>
+                                        <i class="fas fa-check-square fa-lg text-success" title="Marcar como Realizada" onclick="marcarRealizada(<?php echo $tarefa->id ?>, 'index')"></i>
                                     </div>
                                 </div>
                                 <hr>
